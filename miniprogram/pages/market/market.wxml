@@ -29,6 +29,10 @@
   </view>
 
   <view class="supply-list" wx:if="{{activeTab === 'supply'}}">
+    <view class="empty-state" wx:if="{{filteredSupplyList.length === 0}}">
+      <text class="empty-icon">📦</text>
+      <text class="empty-text">暂无供应信息</text>
+    </view>
     <view class="supply-item" wx:for="{{filteredSupplyList}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
       <image class="supply-img" src="{{item.image}}" mode="aspectFill" />
       <view class="supply-info">
@@ -52,6 +56,10 @@
   </view>
 
   <view class="demand-list" wx:if="{{activeTab === 'demand'}}">
+    <view class="empty-state" wx:if="{{filteredDemandList.length === 0}}">
+      <text class="empty-icon">📦</text>
+      <text class="empty-text">暂无采购需求</text>
+    </view>
     <view class="demand-item" wx:for="{{filteredDemandList}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
       <view class="demand-header">
         <text class="demand-title">{{item.title}}</text>

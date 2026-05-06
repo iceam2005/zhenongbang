@@ -9,7 +9,8 @@ Component({
     price: '',
     location: '',
     phone: '',
-    expireDate: ''
+    expireDate: '',
+    images: [] as string[]
   },
   methods: {
     onTitleInput(e: any) {
@@ -39,6 +40,23 @@ Component({
     onDateChange(e: any) {
       this.setData({ expireDate: e.detail.value })
     },
+    chooseImage() {
+      wx.chooseImage({
+        count: 3,
+        sizeType: ['compressed'],
+        sourceType: ['album', 'camera'],
+        success: (res) => {
+          this.setData({
+            images: [...this.data.images, ...res.tempFilePaths]
+          })
+        }
+      })
+    },
+    deleteImage(e: any) {
+      const index = e.currentTarget.dataset.index
+      const images = this.data.images.filter((_, i) => i !== index)
+      this.setData({ images })
+    },
     submit() {
       if (!this.data.title) {
         wx.showToast({ title: '请输入采购标题', icon: 'none' })
@@ -61,22 +79,34 @@ Component({
         location: this.data.location,
         phone: this.data.phone,
         expireDate: this.data.expireDate,
+        images: this.data.images,
         createTime: new Date().toISOString()
       }
 
-      const demands = wx.getStorageSync('demands') || []
-      demands.unshift(demandData)
-      wx.setStorageSync('demands', demands)
+      try {
+        const demands = wx.getStorageSync('demands') || []
+        demands.unshift(demandData)
+        wx.setStorageSync('demands', demands)
 
-      wx.showLoading({ title: '发布中...' })
+        console.log('采购需求已保存:', demandData)
+        console.log('当前demands存储:', demands)
 
-      setTimeout(() => {
-        wx.hideLoading()
-        wx.showToast({ title: '发布成功！', icon: 'success' })
+        wx.showLoading({ title: '发布中...' })
+
         setTimeout(() => {
-          wx.navigateBack()
+          wx.hideLoading()
+          wx.showToast({ title: '发布成功！', icon: 'success' })
+          setTimeout(() => {
+            wx.switchTab({
+              url: '/pages/market/market'
+            })
+          }, 1500)
         }, 1500)
-      }, 1500)
+      } catch (error) {
+        wx.hideLoading()
+        wx.showToast({ title: '发布失败，请重试', icon: 'none' })
+        console.error('发布失败:', error)
+      }
     }
   }
 })

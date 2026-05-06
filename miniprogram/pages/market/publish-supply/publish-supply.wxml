@@ -48,13 +48,16 @@
     </view>
     
     <view class="form-item">
-      <text class="form-label">产品图片</text>
+      <text class="form-label">产品图片 (可选，最多3张)</text>
       <view class="image-upload" bindtap="chooseImage">
         <text class="upload-icon">+</text>
         <text class="upload-text">点击上传图片</text>
       </view>
       <view class="image-preview" wx:if="{{images.length > 0}}">
-        <image wx:for="{{images}}" wx:key="index" src="{{item}}" mode="aspectFill" class="preview-img" />
+        <view class="image-item" wx:for="{{images}}" wx:key="index">
+          <image src="{{item}}" mode="aspectFill" class="preview-img" />
+          <view class="delete-btn" catchtap="deleteImage" data-index="{{index}}">×</view>
+        </view>
       </view>
     </view>
   </view>

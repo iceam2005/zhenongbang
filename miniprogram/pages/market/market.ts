@@ -25,6 +25,7 @@ Component({
       phone: string
       tag: string
       time: string
+      image: string
     }>,
     filteredSupplyList: [] as Array<{
       id: number
@@ -49,13 +50,34 @@ Component({
       phone: string
       tag: string
       time: string
+      image: string
     }>
   },
-  onShow() {
-    this.loadUserData()
+  lifetimes: {
+    attached() {
+      console.log('market component attached')
+      this.loadUserData()
+    },
+    ready() {
+      console.log('market component ready')
+    },
+    detached() {
+      console.log('market component detached')
+    }
+  },
+  pageLifetimes: {
+    show() {
+      console.log('market page show')
+      this.loadUserData()
+    },
+    hide() {
+      console.log('market page hide')
+    }
   },
   methods: {
     loadUserData() {
+      console.log('=== loadUserData called ===')
+
       const defaultSupplies = [
         {
           id: 1,
@@ -118,7 +140,8 @@ Component({
           location: '广东深圳',
           phone: '13900139001',
           tag: '长期合作',
-          time: '2024-01-15'
+          time: '2024-01-15',
+          image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
         },
         {
           id: 2,
@@ -130,7 +153,8 @@ Component({
           location: '广西南宁',
           phone: '13900139002',
           tag: '大型采购',
-          time: '2024-01-14'
+          time: '2024-01-14',
+          image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
         },
         {
           id: 3,
@@ -142,7 +166,8 @@ Component({
           location: '云南临沧',
           phone: '13900139003',
           tag: '急购',
-          time: '2024-01-13'
+          time: '2024-01-13',
+          image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
         },
         {
           id: 4,
@@ -154,25 +179,56 @@ Component({
           location: '海南三亚',
           phone: '13900139004',
           tag: '季节性',
-          time: '2024-01-12'
+          time: '2024-01-12',
+          image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
         }
       ]
 
-      const userSupplies: any[] = wx.getStorageSync('supplies') || []
-      const userDemands: any[] = wx.getStorageSync('demands') || []
+      const userSuppliesStr = wx.getStorageSync('supplies')
+      const userDemandsStr = wx.getStorageSync('demands')
 
-      const formattedSupplies = userSupplies.map((item: any) => ({
-        id: item.id,
-        title: item.title,
-        desc: item.desc || '',
-        spec: item.variety ? `品种：${item.variety}` : '',
-        quantity: item.quantity ? `供应量：${item.quantity}${item.unit || ''}` : '',
-        price: parseFloat(item.price) || 0,
-        unit: item.unit || '',
-        tag: '用户发布',
-        phone: item.phone || '',
-        image: item.images?.[0] || 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
-      }))
+      console.log('userSuppliesStr:', userSuppliesStr)
+
+      let userSupplies: any[] = []
+      let userDemands: any[] = []
+
+      try {
+        if (userSuppliesStr) {
+          if (typeof userSuppliesStr === 'string') {
+            userSupplies = JSON.parse(userSuppliesStr)
+          } else {
+            userSupplies = userSuppliesStr
+          }
+        }
+        if (userDemandsStr) {
+          if (typeof userDemandsStr === 'string') {
+            userDemands = JSON.parse(userDemandsStr)
+          } else {
+            userDemands = userDemandsStr
+          }
+        }
+      } catch (e) {
+        console.error('解析存储数据失败:', e)
+      }
+
+      console.log('userSupplies after parse:', userSupplies)
+      console.log('userSupplies length:', userSupplies.length)
+
+      const formattedSupplies = userSupplies.map((item: any) => {
+        console.log('mapping item:', item)
+        return {
+          id: item.id,
+          title: item.title,
+          desc: item.desc || '',
+          spec: item.variety ? `品种：${item.variety}` : '',
+          quantity: item.quantity ? `供应量：${item.quantity}${item.unit || ''}` : '',
+          price: parseFloat(item.price) || 0,
+          unit: item.unit || '',
+          tag: '用户发布',
+          phone: item.phone || '',
+          image: item.images && item.images.length > 0 ? item.images[0] : 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+        }
+      })
 
       const formattedDemands = userDemands.map((item: any) => ({
         id: item.id,
@@ -184,17 +240,27 @@ Component({
         location: item.location || '',
         phone: item.phone || '',
         tag: '用户发布',
-        time: item.expireDate || item.createTime?.split('T')[0] || ''
+        time: item.expireDate || item.createTime?.split('T')[0] || '',
+        image: item.images && item.images.length > 0 ? item.images[0] : 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
       }))
+
+      console.log('formattedSupplies:', formattedSupplies)
+      console.log('formattedSupplies length:', formattedSupplies.length)
 
       const allSupplies = [...formattedSupplies, ...defaultSupplies]
       const allDemands = [...formattedDemands, ...defaultDemands]
+
+      console.log('allSupplies length:', allSupplies.length)
 
       this.setData({
         allSupplyList: allSupplies,
         allDemandList: allDemands,
         filteredSupplyList: allSupplies,
         filteredDemandList: allDemands
+      }, () => {
+        console.log('setData completed')
+        console.log('filteredSupplyList:', this.data.filteredSupplyList)
+        console.log('filteredSupplyList length:', this.data.filteredSupplyList.length)
       })
     },
     setTab(e: any) {

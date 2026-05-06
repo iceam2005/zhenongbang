@@ -56,6 +56,20 @@
         </view>
       </picker>
     </view>
+    
+    <view class="form-item">
+      <text class="form-label">上传参考照片 (可选，最多3张)</text>
+      <view class="image-upload" bindtap="chooseImage">
+        <text class="upload-icon">+</text>
+        <text class="upload-text">点击上传照片</text>
+      </view>
+      <view class="image-preview" wx:if="{{images.length > 0}}">
+        <view class="image-item" wx:for="{{images}}" wx:key="index">
+          <image src="{{item}}" mode="aspectFill" class="preview-img" />
+          <view class="delete-btn" catchtap="deleteImage" data-index="{{index}}">×</view>
+        </view>
+      </view>
+    </view>
   </view>
   
   <view class="submit-btn" bindtap="submit">发布需求</view>

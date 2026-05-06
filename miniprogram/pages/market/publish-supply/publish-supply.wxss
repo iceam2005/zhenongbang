@@ -102,6 +102,29 @@
   border-radius: 12rpx;
 }
 
+.image-item {
+  position: relative;
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.delete-btn {
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+  width: 44rpx;
+  height: 44rpx;
+  background: rgba(0,0,0,0.6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 36rpx;
+  line-height: 1;
+  z-index: 10;
+}
+
 .submit-btn {
   background: linear-gradient(135deg, #d4a574 0%, #c49464 100%);
   color: white;

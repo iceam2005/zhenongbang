@@ -48,6 +48,11 @@ Component({
         }
       })
     },
+    deleteImage(e: any) {
+      const index = e.currentTarget.dataset.index
+      const images = this.data.images.filter((_, i) => i !== index)
+      this.setData({ images })
+    },
     submit() {
       if (!this.data.title) {
         wx.showToast({ title: '请输入产品名称', icon: 'none' })
@@ -73,19 +78,30 @@ Component({
         createTime: new Date().toISOString()
       }
 
-      const supplies = wx.getStorageSync('supplies') || []
-      supplies.unshift(supplyData)
-      wx.setStorageSync('supplies', supplies)
+      try {
+        const supplies = wx.getStorageSync('supplies') || []
+        supplies.unshift(supplyData)
+        wx.setStorageSync('supplies', supplies)
 
-      wx.showLoading({ title: '发布中...' })
+        console.log('供应数据已保存:', supplyData)
+        console.log('当前supplies存储:', supplies)
 
-      setTimeout(() => {
-        wx.hideLoading()
-        wx.showToast({ title: '发布成功！', icon: 'success' })
+        wx.showLoading({ title: '发布中...' })
+
         setTimeout(() => {
-          wx.navigateBack()
+          wx.hideLoading()
+          wx.showToast({ title: '发布成功！', icon: 'success' })
+          setTimeout(() => {
+            wx.switchTab({
+              url: '/pages/market/market'
+            })
+          }, 1500)
         }, 1500)
-      }, 1500)
+      } catch (error) {
+        wx.hideLoading()
+        wx.showToast({ title: '发布失败，请重试', icon: 'none' })
+        console.error('发布失败:', error)
+      }
     }
   }
 })
