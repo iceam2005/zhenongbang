@@ -1,0 +1,259 @@
+.search-bar {
+  display: flex;
+  background: white;
+  border-radius: 40rpx;
+  padding: 16rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+.search-input {
+  flex: 1;
+  height: 60rpx;
+  font-size: 28rpx;
+  padding-left: 20rpx;
+}
+
+.search-btn {
+  background: linear-gradient(135deg, #d4a574 0%, #c49464 100%);
+  color: white;
+  padding: 16rpx 32rpx;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+}
+
+.tabs {
+  display: flex;
+  background: white;
+  border-radius: 16rpx;
+  padding: 8rpx;
+  margin-bottom: 20rpx;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx;
+  font-size: 28rpx;
+  color: #666;
+  border-radius: 12rpx;
+  transition: all 0.3s;
+}
+
+.tab-item.active {
+  background: linear-gradient(135deg, #d4a574 0%, #c49464 100%);
+  color: white;
+}
+
+.filter-bar {
+  display: flex;
+  background: white;
+  border-radius: 12rpx;
+  padding: 16rpx 0;
+  margin-bottom: 20rpx;
+}
+
+.filter-item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.arrow {
+  font-size: 20rpx;
+  margin-left: 8rpx;
+  color: #999;
+}
+
+.supply-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  padding-bottom: 120rpx;
+}
+
+.supply-item {
+  background: white;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  display: flex;
+  gap: 20rpx;
+}
+
+.supply-img {
+  width: 200rpx;
+  height: 150rpx;
+  border-radius: 12rpx;
+}
+
+.supply-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.supply-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.supply-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.supply-tag {
+  background: #e8f5e9;
+  color: #4caf50;
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
+  font-size: 22rpx;
+}
+
+.supply-desc {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 12rpx;
+}
+
+.supply-spec {
+  display: flex;
+  gap: 20rpx;
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 16rpx;
+}
+
+.supply-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.supply-price {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #e53935;
+}
+
+.supply-contact {
+  background: linear-gradient(135deg, #d4a574 0%, #c49464 100%);
+  color: white;
+  padding: 12rpx 24rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+}
+
+.demand-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  padding-bottom: 120rpx;
+}
+
+.demand-item {
+  background: white;
+  border-radius: 16rpx;
+  padding: 20rpx;
+}
+
+.demand-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.demand-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.demand-tag {
+  background: #fff3e0;
+  color: #ff9800;
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
+  font-size: 22rpx;
+}
+
+.demand-desc {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 16rpx;
+}
+
+.demand-spec {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+  margin-bottom: 16rpx;
+}
+
+.spec-item {
+  display: flex;
+  font-size: 26rpx;
+}
+
+.spec-label {
+  color: #999;
+  width: 140rpx;
+}
+
+.spec-value {
+  color: #333;
+  font-weight: 500;
+}
+
+.demand-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.demand-time {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.demand-contact {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12rpx 24rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+}
+
+.float-btn {
+  position: fixed;
+  right: 30rpx;
+  bottom: 150rpx;
+  width: 120rpx;
+  height: 120rpx;
+  background: linear-gradient(135deg, #d4a574 0%, #c49464 100%);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 20rpx rgba(212, 165, 116, 0.4);
+}
+
+.float-icon {
+  font-size: 48rpx;
+  color: white;
+  line-height: 1;
+}
+
+.float-text {
+  font-size: 20rpx;
+  color: white;
+  margin-top: 4rpx;
+}

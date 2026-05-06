@@ -1,0 +1,88 @@
+<view class="container">
+  <view class="search-bar">
+    <input class="search-input" placeholder="搜索甘蔗产品、供应商..." value="{{searchKeyword}}" bindinput="onSearchInput" />
+    <view class="search-btn" bindtap="onSearch">搜索</view>
+  </view>
+
+  <view class="tabs">
+    <view class="tab-item {{activeTab === 'supply' ? 'active' : ''}}" bindtap="setTab" data-tab="supply">
+      供应信息
+    </view>
+    <view class="tab-item {{activeTab === 'demand' ? 'active' : ''}}" bindtap="setTab" data-tab="demand">
+      采购需求
+    </view>
+  </view>
+
+  <view class="filter-bar">
+    <view class="filter-item" bindtap="showFilter">
+      <text>地区</text>
+      <text class="arrow">▼</text>
+    </view>
+    <view class="filter-item" bindtap="showFilter">
+      <text>品种</text>
+      <text class="arrow">▼</text>
+    </view>
+    <view class="filter-item" bindtap="showFilter">
+      <text>价格</text>
+      <text class="arrow">▼</text>
+    </view>
+  </view>
+
+  <view class="supply-list" wx:if="{{activeTab === 'supply'}}">
+    <view class="supply-item" wx:for="{{filteredSupplyList}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+      <image class="supply-img" src="{{item.image}}" mode="aspectFill" />
+      <view class="supply-info">
+        <view class="supply-header">
+          <text class="supply-title">{{item.title}}</text>
+          <view class="supply-tag">{{item.tag}}</view>
+        </view>
+        <text class="supply-desc">{{item.desc}}</text>
+        <view class="supply-spec">
+          <text>{{item.spec}}</text>
+          <text>{{item.quantity}}</text>
+        </view>
+        <view class="supply-footer">
+          <text class="supply-price">¥{{item.price}}/{{item.unit}}</text>
+          <view class="supply-contact" catchtap="contactSupplier" data-phone="{{item.phone}}">
+            <text>联系供应商</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="demand-list" wx:if="{{activeTab === 'demand'}}">
+    <view class="demand-item" wx:for="{{filteredDemandList}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+      <view class="demand-header">
+        <text class="demand-title">{{item.title}}</text>
+        <view class="demand-tag">{{item.tag}}</view>
+      </view>
+      <text class="demand-desc">{{item.desc}}</text>
+      <view class="demand-spec">
+        <view class="spec-item">
+          <text class="spec-label">采购量：</text>
+          <text class="spec-value">{{item.quantity}}</text>
+        </view>
+        <view class="spec-item">
+          <text class="spec-label">期望价格：</text>
+          <text class="spec-value">¥{{item.price}}/{{item.unit}}</text>
+        </view>
+        <view class="spec-item">
+          <text class="spec-label">收货地：</text>
+          <text class="spec-value">{{item.location}}</text>
+        </view>
+      </view>
+      <view class="demand-footer">
+        <text class="demand-time">发布时间：{{item.time}}</text>
+        <view class="demand-contact" catchtap="contactBuyer" data-phone="{{item.phone}}">
+          <text>报价</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="float-btn" bindtap="publish">
+    <text class="float-icon">+</text>
+    <text class="float-text">发布</text>
+  </view>
+</view>

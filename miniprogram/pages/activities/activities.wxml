@@ -1,0 +1,90 @@
+<view class="container">
+  <view class="search-bar">
+    <input class="search-input" placeholder="搜索研学活动..." />
+    <view class="search-btn">搜索</view>
+  </view>
+
+  <view class="banner">
+    <image class="banner-img" src="https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0" mode="aspectFill" />
+    <view class="banner-overlay">
+      <text class="banner-title">甘蔗研学基地</text>
+      <text class="banner-desc">探索甘蔗的奥秘，体验农耕文化</text>
+    </view>
+  </view>
+
+  <view class="activity-types">
+    <view class="type-item" bindtap="filterType('all')">
+      <view class="type-icon all-icon">
+        <text>全</text>
+      </view>
+      <text class="type-text">全部</text>
+    </view>
+    <view class="type-item" bindtap="filterType('study')">
+      <view class="type-icon study-icon">
+        <text>研</text>
+      </view>
+      <text class="type-text">研学课程</text>
+    </view>
+    <view class="type-item" bindtap="filterType('family')">
+      <view class="type-icon family-icon">
+        <text>亲</text>
+      </view>
+      <text class="type-text">亲子活动</text>
+    </view>
+    <view class="type-item" bindtap="filterType('farm')">
+      <view class="type-icon farm-icon">
+        <text>农</text>
+      </view>
+      <text class="type-text">农家乐</text>
+    </view>
+  </view>
+
+  <view class="activity-list">
+    <view class="activity-card" wx:for="{{activityList}}" wx:key="id" bindtap="goToDetail">
+      <image class="activity-img" src="{{item.image}}" mode="aspectFill" />
+      <view class="activity-info">
+        <view class="activity-header">
+          <text class="activity-title">{{item.title}}</text>
+          <view class="activity-tag">{{item.tag}}</view>
+        </view>
+        <view class="activity-meta">
+          <view class="meta-item">
+            <text class="meta-icon">👥</text>
+            <text>{{item.target}}</text>
+          </view>
+          <view class="meta-item">
+            <text class="meta-icon">⏱️</text>
+            <text>{{item.duration}}</text>
+          </view>
+        </view>
+        <text class="activity-desc">{{item.desc}}</text>
+        <view class="activity-highlights">
+          <view class="highlight-item" wx:for="{{item.highlights}}" wx:key="index">
+            <text>• {{item.highlights[index]}}</text>
+          </view>
+        </view>
+        <view class="activity-footer">
+          <view class="price-section">
+            <text class="price-label">价格：</text>
+            <text class="activity-price">¥{{item.price}}</text>
+            <text class="price-unit">/{{item.unit}}</text>
+          </view>
+          <view class="book-btn" catchtap="bookActivity" data-id="{{item.id}}">立即预订</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="calendar-section">
+    <text class="calendar-title">近期可预约日期</text>
+    <scroll-view scroll-x class="calendar-scroll">
+      <view class="calendar-list">
+        <view class="calendar-item" wx:for="{{calendarList}}" wx:key="date">
+          <text class="calendar-date">{{item.date}}</text>
+          <text class="calendar-week">{{item.week}}</text>
+          <view class="calendar-status {{item.status}}" text="{{item.status === 'available' ? '可预约' : '已满'}}"></view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

@@ -1,0 +1,70 @@
+<view class="container">
+  <view class="activity-card">
+    <image class="activity-img" src="{{activity.image}}" mode="aspectFill" />
+    <view class="activity-info">
+      <text class="activity-title">{{activity.title}}</text>
+      <view class="activity-meta">
+        <text class="meta-item">👥 {{activity.target}}</text>
+        <text class="meta-item">⏱️ {{activity.duration}}</text>
+      </view>
+      <view class="activity-price">
+        <text class="price-value">¥{{activity.price}}</text>
+        <text class="price-unit">/{{activity.unit}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <view class="form-card">
+    <view class="form-title">预订信息</view>
+    
+    <view class="form-item">
+      <text class="form-label">姓名</text>
+      <input class="form-input" placeholder="请输入您的姓名" value="{{name}}" bindinput="onNameInput" />
+    </view>
+    
+    <view class="form-item">
+      <text class="form-label">联系电话</text>
+      <input class="form-input" type="number" placeholder="请输入您的联系电话" value="{{phone}}" bindinput="onPhoneInput" />
+    </view>
+    
+    <view class="form-item">
+      <text class="form-label">预订人数</text>
+      <view class="count-selector">
+        <view class="count-btn" catchtap="decrease">-</view>
+        <text class="count-num">{{peopleCount}}</text>
+        <view class="count-btn" catchtap="increase">+</view>
+      </view>
+    </view>
+    
+    <view class="form-item">
+      <text class="form-label">预约日期</text>
+      <picker mode="date" bindchange="onDateChange" value="{{bookDate}}">
+        <view class="form-picker">
+          <text>{{bookDate || '请选择日期'}}</text>
+          <text class="arrow">▼</text>
+        </view>
+      </picker>
+    </view>
+    
+    <view class="form-item">
+      <text class="form-label">备注信息</text>
+      <textarea class="form-textarea" placeholder="如有特殊需求请备注" value="{{remark}}" bindinput="onRemarkInput" />
+    </view>
+  </view>
+  
+  <view class="notice-card">
+    <text class="notice-title">📋 预订须知</text>
+    <view class="notice-item">1. 请提前1天预约</view>
+    <view class="notice-item">2. 预约成功后会有工作人员联系您确认</view>
+    <view class="notice-item">3. 如需取消预约，请提前2天通知</view>
+    <view class="notice-item">4. 活动当天请准时到达研学基地</view>
+  </view>
+  
+  <view class="submit-bar">
+    <view class="submit-info">
+      <text class="submit-label">应付金额：</text>
+      <text class="submit-price">¥{{totalPrice}}</text>
+    </view>
+    <view class="submit-btn" catchtap="submitBook">提交预订</view>
+  </view>
+</view>

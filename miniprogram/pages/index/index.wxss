@@ -1,0 +1,287 @@
+.banner {
+  position: relative;
+  width: 100%;
+  height: 360rpx;
+  margin-bottom: 30rpx;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20rpx;
+}
+
+.banner-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40rpx 30rpx;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+  border-radius: 0 0 20rpx 20rpx;
+}
+
+.banner-title {
+  display: block;
+  font-size: 48rpx;
+  font-weight: bold;
+  color: white;
+}
+
+.banner-subtitle {
+  display: block;
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 8rpx;
+}
+
+.quick-entry {
+  display: flex;
+  justify-content: space-around;
+  background: white;
+  border-radius: 20rpx;
+  padding: 30rpx 0;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+.entry-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.entry-icon {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12rpx;
+}
+
+.market-icon {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.product-icon {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.activity-icon {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.mine-icon {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.icon-text {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: white;
+}
+
+.entry-text {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.card-more {
+  font-size: 26rpx;
+  color: #d4a574;
+}
+
+.market-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.market-item {
+  display: flex;
+  padding: 16rpx;
+  background: #fafafa;
+  border-radius: 12rpx;
+}
+
+.market-img {
+  width: 160rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+}
+
+.market-info {
+  flex: 1;
+  padding-left: 16rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.market-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.market-desc {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.market-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.market-price {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #e53935;
+}
+
+.market-location {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16rpx;
+}
+
+.product-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-img {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 12rpx;
+  margin-bottom: 10rpx;
+}
+
+.product-name {
+  font-size: 24rpx;
+  color: #333;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 140rpx;
+}
+
+.product-price {
+  font-size: 24rpx;
+  color: #e53935;
+  font-weight: bold;
+  margin-top: 4rpx;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.activity-item {
+  display: flex;
+  padding: 16rpx;
+  background: #fafafa;
+  border-radius: 12rpx;
+}
+
+.activity-img {
+  width: 160rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+}
+
+.activity-info {
+  flex: 1;
+  padding-left: 16rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.activity-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.activity-desc {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.activity-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.activity-price {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #e53935;
+}
+
+.activity-time {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.carbon-info {
+  display: flex;
+  background: linear-gradient(135deg, #d4a574 0%, #c49464 100%);
+  border-radius: 20rpx;
+  padding: 30rpx 0;
+  margin-top: 20rpx;
+  margin-bottom: 100rpx;
+}
+
+.carbon-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carbon-value {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: white;
+}
+
+.carbon-label {
+  font-size: 22rpx;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 8rpx;
+}
+
+.carbon-divider {
+  width: 2rpx;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 0 20rpx;
+}

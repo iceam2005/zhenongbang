@@ -1,0 +1,107 @@
+<view class="container">
+  <view class="banner">
+    <image class="banner-img" src="https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0" mode="aspectFill" />
+    <view class="banner-overlay">
+      <text class="banner-title">蔗农帮</text>
+      <text class="banner-subtitle">智慧助农 · 碳循环经济</text>
+    </view>
+  </view>
+
+  <view class="quick-entry">
+    <view class="entry-item" bindtap="goToMarket">
+      <view class="entry-icon market-icon">
+        <text class="icon-text">产</text>
+      </view>
+      <text class="entry-text">产销对接</text>
+    </view>
+    <view class="entry-item" bindtap="goToProducts">
+      <view class="entry-icon product-icon">
+        <text class="icon-text">品</text>
+      </view>
+      <text class="entry-text">产品城</text>
+    </view>
+    <view class="entry-item" bindtap="goToActivities">
+      <view class="entry-icon activity-icon">
+        <text class="icon-text">研</text>
+      </view>
+      <text class="entry-text">研学活动</text>
+    </view>
+    <view class="entry-item" bindtap="goToMine">
+      <view class="entry-icon mine-icon">
+        <text class="icon-text">我</text>
+      </view>
+      <text class="entry-text">我的</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-header">
+      <text class="card-title">助农产销对接</text>
+      <text class="card-more" bindtap="goToMarket">查看更多</text>
+    </view>
+    <view class="market-list">
+      <view class="market-item" wx:for="{{marketList}}" wx:key="id" bindtap="goToMarketDetail">
+        <image class="market-img" src="{{item.image}}" mode="aspectFill" />
+        <view class="market-info">
+          <text class="market-title">{{item.title}}</text>
+          <text class="market-desc">{{item.desc}}</text>
+          <view class="market-footer">
+            <text class="market-price">¥{{item.price}}/{{item.unit}}</text>
+            <text class="market-location">{{item.location}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-header">
+      <text class="card-title">甘蔗渣环保产品</text>
+      <text class="card-more" bindtap="goToProducts">查看更多</text>
+    </view>
+    <view class="product-grid">
+      <view class="product-item" wx:for="{{productList}}" wx:key="id" bindtap="goToProductDetail">
+        <image class="product-img" src="{{item.image}}" mode="aspectFill" />
+        <text class="product-name">{{item.name}}</text>
+        <text class="product-price">¥{{item.price}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-header">
+      <text class="card-title">热门研学活动</text>
+      <text class="card-more" bindtap="goToActivities">查看更多</text>
+    </view>
+    <view class="activity-list">
+      <view class="activity-item" wx:for="{{activityList}}" wx:key="id" bindtap="goToActivityDetail">
+        <image class="activity-img" src="{{item.image}}" mode="aspectFill" />
+        <view class="activity-info">
+          <text class="activity-title">{{item.title}}</text>
+          <text class="activity-desc">{{item.desc}}</text>
+          <view class="activity-footer">
+            <text class="activity-price">¥{{item.price}}/{{item.unit}}</text>
+            <text class="activity-time">{{item.time}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="carbon-info">
+    <view class="carbon-item">
+      <text class="carbon-value">2500吨</text>
+      <text class="carbon-label">年减碳量</text>
+    </view>
+    <view class="carbon-divider"></view>
+    <view class="carbon-item">
+      <text class="carbon-value">1000吨</text>
+      <text class="carbon-label">环保制品年产量</text>
+    </view>
+    <view class="carbon-divider"></view>
+    <view class="carbon-item">
+      <text class="carbon-value">5000+</text>
+      <text class="carbon-label">服务蔗农数</text>
+    </view>
+  </view>
+</view>

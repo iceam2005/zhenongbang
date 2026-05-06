@@ -1,0 +1,62 @@
+<view class="container">
+  <view class="form-card">
+    <view class="form-title">发布采购需求</view>
+    
+    <view class="form-item">
+      <text class="form-label">采购标题</text>
+      <input class="form-input" placeholder="请输入采购标题" value="{{title}}" bindinput="onTitleInput" />
+    </view>
+    
+    <view class="form-item">
+      <text class="form-label">采购产品品种</text>
+      <input class="form-input" placeholder="如：黑皮果蔗、糖料蔗" value="{{variety}}" bindinput="onVarietyInput" />
+    </view>
+    
+    <view class="form-item">
+      <text class="form-label">采购需求描述</text>
+      <textarea class="form-textarea" placeholder="请描述采购的具体要求、质量标准等" value="{{desc}}" bindinput="onDescInput" />
+    </view>
+    
+    <view class="form-item">
+      <text class="form-label">采购数量</text>
+      <input class="form-input" type="number" placeholder="请输入采购数量" value="{{quantity}}" bindinput="onQuantityInput" />
+    </view>
+    
+    <view class="form-item">
+      <text class="form-label">单位</text>
+      <picker bindchange="onUnitChange" value="{{unitIndex}}" range="{{units}}">
+        <view class="form-picker">
+          <text>{{units[unitIndex]}}</text>
+          <text class="arrow">▼</text>
+        </view>
+      </picker>
+    </view>
+    
+    <view class="form-item">
+      <text class="form-label">期望价格</text>
+      <input class="form-input" type="digit" placeholder="请输入期望价格，可填'面议'" value="{{price}}" bindinput="onPriceInput" />
+    </view>
+    
+    <view class="form-item">
+      <text class="form-label">收货地点</text>
+      <input class="form-input" placeholder="请输入收货地点" value="{{location}}" bindinput="onLocationInput" />
+    </view>
+    
+    <view class="form-item">
+      <text class="form-label">联系电话</text>
+      <input class="form-input" type="number" placeholder="请输入联系电话" value="{{phone}}" bindinput="onPhoneInput" />
+    </view>
+    
+    <view class="form-item">
+      <text class="form-label">采购有效期</text>
+      <picker mode="date" bindchange="onDateChange" value="{{expireDate}}">
+        <view class="form-picker">
+          <text>{{expireDate || '请选择日期'}}</text>
+          <text class="arrow">▼</text>
+        </view>
+      </picker>
+    </view>
+  </view>
+  
+  <view class="submit-btn" bindtap="submit">发布需求</view>
+</view>
