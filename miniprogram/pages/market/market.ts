@@ -1,3 +1,5 @@
+import { P, DEFAULT_PLACEHOLDER_IMAGE } from '../../utils/placeholders'
+
 Component({
   data: {
     activeTab: 'supply',
@@ -89,7 +91,7 @@ Component({
           unit: '斤',
           tag: '产地直供',
           phone: '13800138001',
-          image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+          image: P.marketSupply(1)
         },
         {
           id: 2,
@@ -101,7 +103,7 @@ Component({
           unit: '吨',
           tag: '量大从优',
           phone: '13800138002',
-          image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+          image: P.marketSupply(2)
         },
         {
           id: 3,
@@ -113,7 +115,7 @@ Component({
           unit: '株',
           tag: '技术支持',
           phone: '13800138003',
-          image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+          image: P.marketSupply(3)
         },
         {
           id: 4,
@@ -125,7 +127,7 @@ Component({
           unit: '吨',
           tag: '饲料专用',
           phone: '13800138004',
-          image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+          image: P.marketSupply(4)
         }
       ]
 
@@ -141,7 +143,7 @@ Component({
           phone: '13900139001',
           tag: '长期合作',
           time: '2024-01-15',
-          image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+          image: P.marketDemand(1)
         },
         {
           id: 2,
@@ -154,7 +156,7 @@ Component({
           phone: '13900139002',
           tag: '大型采购',
           time: '2024-01-14',
-          image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+          image: P.marketDemand(2)
         },
         {
           id: 3,
@@ -167,7 +169,7 @@ Component({
           phone: '13900139003',
           tag: '急购',
           time: '2024-01-13',
-          image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+          image: P.marketDemand(3)
         },
         {
           id: 4,
@@ -180,7 +182,7 @@ Component({
           phone: '13900139004',
           tag: '季节性',
           time: '2024-01-12',
-          image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+          image: P.marketDemand(4)
         }
       ]
 
@@ -226,7 +228,7 @@ Component({
           unit: item.unit || '',
           tag: '用户发布',
           phone: item.phone || '',
-          image: item.images && item.images.length > 0 ? item.images[0] : 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+          image: item.images && item.images.length > 0 ? item.images[0] : DEFAULT_PLACEHOLDER_IMAGE
         }
       })
 
@@ -241,7 +243,7 @@ Component({
         phone: item.phone || '',
         tag: '用户发布',
         time: item.expireDate || item.createTime?.split('T')[0] || '',
-        image: item.images && item.images.length > 0 ? item.images[0] : 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+        image: item.images && item.images.length > 0 ? item.images[0] : DEFAULT_PLACEHOLDER_IMAGE
       }))
 
       console.log('formattedSupplies:', formattedSupplies)

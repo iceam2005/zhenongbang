@@ -1,5 +1,19 @@
+import { P } from '../../utils/placeholders'
+
 Component({
   data: {
+    bannerSlides: [
+      {
+        src: P.activityBanner(1),
+        title: '活动主题',
+        desc: '探索甘蔗的奥秘，体验农耕文化'
+      },
+      {
+        src: P.activityBanner(2),
+        title: '活动主题',
+        desc: '亲子研学 · 劳动教育 · 碳循环科普'
+      }
+    ],
     activityList: [
       {
         id: 1,
@@ -12,7 +26,7 @@ Component({
         tag: '热门',
         type: 'study',
         highlights: ['科普教育', '动手体验', '环保理念'],
-        image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+        image: P.activityCard(1)
       },
       {
         id: 2,
@@ -25,7 +39,7 @@ Component({
         tag: '推荐',
         type: 'family',
         highlights: ['亲子互动', '户外体验', '美食制作'],
-        image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+        image: P.activityCard(2)
       },
       {
         id: 3,
@@ -38,7 +52,7 @@ Component({
         tag: '',
         type: 'farm',
         highlights: ['特色餐饮', '拍照打卡', '文创体验'],
-        image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+        image: P.activityCard(3)
       },
       {
         id: 4,
@@ -51,7 +65,7 @@ Component({
         tag: '定制',
         type: 'study',
         highlights: ['课程授权', '专业教具', '教师培训'],
-        image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+        image: P.activityCard(4)
       }
     ],
     calendarList: [

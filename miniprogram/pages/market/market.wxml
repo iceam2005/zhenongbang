@@ -34,7 +34,10 @@
       <text class="empty-text">暂无供应信息</text>
     </view>
     <view class="supply-item" wx:for="{{filteredSupplyList}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
-      <image class="supply-img" src="{{item.image}}" mode="aspectFill" />
+      <view class="supply-thumb-wrap">
+        <image class="supply-img" src="{{item.image}}" mode="aspectFill" />
+        <view class="supply-img-badge"><text>供应商品</text></view>
+      </view>
       <view class="supply-info">
         <view class="supply-header">
           <text class="supply-title">{{item.title}}</text>
@@ -61,6 +64,12 @@
       <text class="empty-text">暂无采购需求</text>
     </view>
     <view class="demand-item" wx:for="{{filteredDemandList}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+      <view class="demand-row">
+        <view class="demand-thumb-wrap">
+          <image class="demand-img" src="{{item.image}}" mode="aspectFill" />
+          <view class="demand-img-badge"><text>采购需求</text></view>
+        </view>
+        <view class="demand-body">
       <view class="demand-header">
         <text class="demand-title">{{item.title}}</text>
         <view class="demand-tag">{{item.tag}}</view>
@@ -84,6 +93,8 @@
         <text class="demand-time">发布时间：{{item.time}}</text>
         <view class="demand-contact" catchtap="contactBuyer" data-phone="{{item.phone}}">
           <text>报价</text>
+        </view>
+      </view>
         </view>
       </view>
     </view>

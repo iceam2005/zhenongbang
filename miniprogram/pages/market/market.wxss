@@ -83,10 +83,33 @@
   gap: 20rpx;
 }
 
+.supply-thumb-wrap {
+  position: relative;
+  width: 200rpx;
+  height: 200rpx;
+  flex-shrink: 0;
+}
+
 .supply-img {
   width: 200rpx;
-  height: 150rpx;
+  height: 200rpx;
   border-radius: 12rpx;
+}
+
+.supply-img-badge {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 6rpx 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 0 0 12rpx 12rpx;
+  text-align: center;
+}
+
+.supply-img-badge text {
+  font-size: 22rpx;
+  color: #fff;
 }
 
 .supply-info {
@@ -161,6 +184,45 @@
   background: white;
   border-radius: 16rpx;
   padding: 20rpx;
+}
+
+.demand-row {
+  display: flex;
+  gap: 20rpx;
+}
+
+.demand-thumb-wrap {
+  position: relative;
+  width: 200rpx;
+  height: 200rpx;
+  flex-shrink: 0;
+}
+
+.demand-img {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 12rpx;
+}
+
+.demand-img-badge {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 6rpx 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 0 0 12rpx 12rpx;
+  text-align: center;
+}
+
+.demand-img-badge text {
+  font-size: 22rpx;
+  color: #fff;
+}
+
+.demand-body {
+  flex: 1;
+  min-width: 0;
 }
 
 .demand-header {

@@ -1,3 +1,5 @@
+import { P } from '../../utils/placeholders'
+
 Component({
   data: {
     activity: {
@@ -7,7 +9,7 @@ Component({
       duration: '3小时',
       price: 68,
       unit: '人',
-      image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+      image: P.activityCard(1)
     },
     name: '',
     phone: '',

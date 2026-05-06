@@ -22,12 +22,20 @@
   font-size: 26rpx;
 }
 
+.activity-banner-swiper {
+  width: 100%;
+  height: 280rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+}
+
 .banner {
   position: relative;
   height: 280rpx;
   border-radius: 20rpx;
   overflow: hidden;
-  margin-bottom: 20rpx;
+  margin-bottom: 0;
 }
 
 .banner-img {
@@ -120,9 +128,31 @@
   overflow: hidden;
 }
 
+.activity-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 280rpx;
+}
+
 .activity-img {
   width: 100%;
   height: 280rpx;
+  display: block;
+}
+
+.activity-scene-badge {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10rpx 0;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.activity-scene-badge text {
+  font-size: 24rpx;
+  color: #fff;
 }
 
 .activity-info {

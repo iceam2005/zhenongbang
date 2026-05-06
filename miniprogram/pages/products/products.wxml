@@ -7,19 +7,19 @@
   <view class="category-tabs">
     <scroll-view scroll-x class="category-scroll">
       <view class="category-list">
-        <view class="category-item {{activeCategory === 'all' ? 'active' : ''}}" bindtap="setCategory('all')">
+        <view class="category-item {{activeCategory === 'all' ? 'active' : ''}}" bindtap="setCategory" data-category="all">
           全部
         </view>
-        <view class="category-item {{activeCategory === 'straw' ? 'active' : ''}}" bindtap="setCategory('straw')">
+        <view class="category-item {{activeCategory === 'straw' ? 'active' : ''}}" bindtap="setCategory" data-category="straw">
           可降解吸管
         </view>
-        <view class="category-item {{activeCategory === 'box' ? 'active' : ''}}" bindtap="setCategory('box')">
+        <view class="category-item {{activeCategory === 'box' ? 'active' : ''}}" bindtap="setCategory" data-category="box">
           环保餐盒
         </view>
-        <view class="category-item {{activeCategory === 'pot' ? 'active' : ''}}" bindtap="setCategory('pot')">
+        <view class="category-item {{activeCategory === 'pot' ? 'active' : ''}}" bindtap="setCategory" data-category="pot">
           农育花盆
         </view>
-        <view class="category-item {{activeCategory === 'gift' ? 'active' : ''}}" bindtap="setCategory('gift')">
+        <view class="category-item {{activeCategory === 'gift' ? 'active' : ''}}" bindtap="setCategory" data-category="gift">
           文创礼品
         </view>
       </view>
@@ -27,7 +27,7 @@
   </view>
 
   <view class="eco-banner">
-    <image class="eco-img" src="https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0" mode="aspectFill" />
+    <image class="eco-img" src="{{ecoBannerUrl}}" mode="aspectFill" />
     <view class="eco-overlay">
       <text class="eco-title">碳循环经济</text>
       <text class="eco-desc">每购买一件产品，减少CO₂排放约2.5kg</text>
@@ -35,10 +35,11 @@
   </view>
 
   <view class="product-list">
-    <view class="product-card" wx:for="{{productList}}" wx:key="id" bindtap="goToDetail">
+    <view class="product-card" wx:for="{{productList}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
       <view class="product-image-wrapper">
         <image class="product-img" src="{{item.image}}" mode="aspectFill" />
         <view class="product-tag" wx:if="{{item.tag}}">{{item.tag}}</view>
+        <view class="product-name-overlay"><text>{{item.name}}</text></view>
       </view>
       <view class="product-info">
         <text class="product-name">{{item.name}}</text>

@@ -1,7 +1,10 @@
 <view class="container">
   <view class="user-section">
     <view class="user-header">
-      <image class="user-avatar" src="https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0" />
+      <view class="avatar-wrap">
+        <image class="user-avatar" src="{{avatarUrl}}" mode="aspectFill" />
+        <text class="avatar-label">默认头像</text>
+      </view>
       <view class="user-info">
         <text class="user-name">蔗农用户</text>
         <text class="user-id">ID: 888888</text>

@@ -1,11 +1,15 @@
 <view class="container">
-  <view class="banner">
-    <image class="banner-img" src="https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0" mode="aspectFill" />
-    <view class="banner-overlay">
-      <text class="banner-title">蔗农帮</text>
-      <text class="banner-subtitle">智慧助农 · 碳循环经济</text>
-    </view>
-  </view>
+  <swiper class="banner-swiper" indicator-dots autoplay circular interval="4000" duration="500">
+    <swiper-item wx:for="{{bannerSlides}}" wx:key="label">
+      <view class="banner">
+        <image class="banner-img" src="{{item.src}}" mode="aspectFill" />
+        <view class="banner-overlay">
+          <text class="banner-title">{{item.label}}</text>
+          <text class="banner-subtitle" wx:if="{{item.subtitle}}">{{item.subtitle}}</text>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
 
   <view class="quick-entry">
     <view class="entry-item" bindtap="goToMarket">
@@ -40,8 +44,11 @@
       <text class="card-more" bindtap="goToMarket">查看更多</text>
     </view>
     <view class="market-list">
-      <view class="market-item" wx:for="{{marketList}}" wx:key="id" bindtap="goToMarketDetail">
-        <image class="market-img" src="{{item.image}}" mode="aspectFill" />
+      <view class="market-item" wx:for="{{marketList}}" wx:key="id" bindtap="goToMarketDetail" data-id="{{item.id}}">
+        <view class="market-thumb">
+          <image class="market-img" src="{{item.image}}" mode="aspectFill" />
+          <view class="market-img-badge"><text>供应商品</text></view>
+        </view>
         <view class="market-info">
           <text class="market-title">{{item.title}}</text>
           <text class="market-desc">{{item.desc}}</text>
@@ -60,8 +67,11 @@
       <text class="card-more" bindtap="goToProducts">查看更多</text>
     </view>
     <view class="product-grid">
-      <view class="product-item" wx:for="{{productList}}" wx:key="id" bindtap="goToProductDetail">
-        <image class="product-img" src="{{item.image}}" mode="aspectFill" />
+      <view class="product-item" wx:for="{{productList}}" wx:key="id" bindtap="goToProductDetail" data-id="{{item.id}}">
+        <view class="product-thumb">
+          <image class="product-img" src="{{item.image}}" mode="aspectFill" />
+          <view class="product-name-on-img"><text>{{item.name}}</text></view>
+        </view>
         <text class="product-name">{{item.name}}</text>
         <text class="product-price">¥{{item.price}}</text>
       </view>
@@ -74,8 +84,11 @@
       <text class="card-more" bindtap="goToActivities">查看更多</text>
     </view>
     <view class="activity-list">
-      <view class="activity-item" wx:for="{{activityList}}" wx:key="id" bindtap="goToActivityDetail">
-        <image class="activity-img" src="{{item.image}}" mode="aspectFill" />
+      <view class="activity-item" wx:for="{{activityList}}" wx:key="id" bindtap="goToActivityDetail" data-id="{{item.id}}">
+        <view class="activity-thumb">
+          <image class="activity-img" src="{{item.image}}" mode="aspectFill" />
+          <view class="activity-img-badge"><text>活动现场</text></view>
+        </view>
         <view class="activity-info">
           <text class="activity-title">{{item.title}}</text>
           <text class="activity-desc">{{item.desc}}</text>

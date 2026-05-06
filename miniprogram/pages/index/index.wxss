@@ -1,8 +1,16 @@
+.banner-swiper {
+  width: 100%;
+  height: 360rpx;
+  margin-bottom: 30rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
 .banner {
   position: relative;
   width: 100%;
   height: 360rpx;
-  margin-bottom: 30rpx;
+  margin-bottom: 0;
 }
 
 .banner-img {
@@ -119,10 +127,33 @@
   border-radius: 12rpx;
 }
 
+.market-thumb {
+  position: relative;
+  width: 200rpx;
+  height: 200rpx;
+  flex-shrink: 0;
+}
+
 .market-img {
-  width: 160rpx;
-  height: 120rpx;
+  width: 200rpx;
+  height: 200rpx;
   border-radius: 10rpx;
+}
+
+.market-img-badge {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 6rpx 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 0 0 10rpx 10rpx;
+  text-align: center;
+}
+
+.market-img-badge text {
+  font-size: 22rpx;
+  color: #fff;
 }
 
 .market-info {
@@ -173,11 +204,37 @@
   align-items: center;
 }
 
+.product-thumb {
+  position: relative;
+  width: 140rpx;
+  height: 140rpx;
+  margin-bottom: 10rpx;
+}
+
 .product-img {
   width: 140rpx;
   height: 140rpx;
   border-radius: 12rpx;
-  margin-bottom: 10rpx;
+}
+
+.product-name-on-img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 6rpx 4rpx;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 0 0 12rpx 12rpx;
+}
+
+.product-name-on-img text {
+  font-size: 20rpx;
+  color: #fff;
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .product-name {
@@ -210,10 +267,33 @@
   border-radius: 12rpx;
 }
 
+.activity-thumb {
+  position: relative;
+  width: 200rpx;
+  height: 200rpx;
+  flex-shrink: 0;
+}
+
 .activity-img {
-  width: 160rpx;
-  height: 120rpx;
+  width: 200rpx;
+  height: 200rpx;
   border-radius: 10rpx;
+}
+
+.activity-img-badge {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 6rpx 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 0 0 10rpx 10rpx;
+  text-align: center;
+}
+
+.activity-img-badge text {
+  font-size: 22rpx;
+  color: #fff;
 }
 
 .activity-info {

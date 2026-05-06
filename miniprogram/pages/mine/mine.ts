@@ -1,5 +1,9 @@
+import { P } from '../../utils/placeholders'
+
 Component({
-  data: {},
+  data: {
+    avatarUrl: P.userAvatar()
+  },
   methods: {
     goToOrders() {
       wx.showToast({

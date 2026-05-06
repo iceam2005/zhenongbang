@@ -4,13 +4,17 @@
     <view class="search-btn">搜索</view>
   </view>
 
-  <view class="banner">
-    <image class="banner-img" src="https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0" mode="aspectFill" />
-    <view class="banner-overlay">
-      <text class="banner-title">甘蔗研学基地</text>
-      <text class="banner-desc">探索甘蔗的奥秘，体验农耕文化</text>
-    </view>
-  </view>
+  <swiper class="activity-banner-swiper" indicator-dots autoplay circular interval="4500" duration="500">
+    <swiper-item wx:for="{{bannerSlides}}" wx:key="title">
+      <view class="banner">
+        <image class="banner-img" src="{{item.src}}" mode="aspectFill" />
+        <view class="banner-overlay">
+          <text class="banner-title">{{item.title}}</text>
+          <text class="banner-desc">{{item.desc}}</text>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
 
   <view class="activity-types">
     <view class="type-item" bindtap="filterType('all')">
@@ -40,8 +44,11 @@
   </view>
 
   <view class="activity-list">
-    <view class="activity-card" wx:for="{{activityList}}" wx:key="id" bindtap="goToDetail">
-      <image class="activity-img" src="{{item.image}}" mode="aspectFill" />
+    <view class="activity-card" wx:for="{{activityList}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+      <view class="activity-img-wrap">
+        <image class="activity-img" src="{{item.image}}" mode="aspectFill" />
+        <view class="activity-scene-badge"><text>活动现场</text></view>
+      </view>
       <view class="activity-info">
         <view class="activity-header">
           <text class="activity-title">{{item.title}}</text>

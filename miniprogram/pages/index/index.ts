@@ -1,5 +1,12 @@
+import { P } from '../../utils/placeholders'
+
 Component({
   data: {
+    bannerSlides: [
+      { src: P.homeBanner(1), label: '轮播图1', subtitle: '智慧助农 · 碳循环经济' },
+      { src: P.homeBanner(2), label: '轮播图2', subtitle: '' },
+      { src: P.homeBanner(3), label: '轮播图3', subtitle: '' }
+    ],
     marketList: [
       {
         id: 1,
@@ -8,7 +15,7 @@ Component({
         price: 3.5,
         unit: '斤',
         location: '广西南宁',
-        image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+        image: P.indexSupply(1)
       },
       {
         id: 2,
@@ -17,7 +24,7 @@ Component({
         price: 280,
         unit: '吨',
         location: '广东湛江',
-        image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+        image: P.indexSupply(2)
       },
       {
         id: 3,
@@ -26,7 +33,16 @@ Component({
         price: 0.8,
         unit: '株',
         location: '云南临沧',
-        image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+        image: P.indexSupply(3)
+      },
+      {
+        id: 4,
+        title: '新鲜甘蔗梢',
+        desc: '营养丰富，适合养殖饲料',
+        price: 120,
+        unit: '吨',
+        location: '广西崇左',
+        image: P.indexSupply(4)
       }
     ],
     productList: [
@@ -34,25 +50,37 @@ Component({
         id: 1,
         name: '可降解吸管',
         price: 29.9,
-        image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+        image: P.indexProduct(1)
       },
       {
         id: 2,
         name: '环保餐盒',
         price: 45.0,
-        image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+        image: P.indexProduct(2)
       },
       {
         id: 3,
         name: '农育花盆',
         price: 15.0,
-        image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+        image: P.indexProduct(3)
       },
       {
         id: 4,
         name: '文创礼品',
         price: 68.0,
-        image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+        image: P.indexProduct(4)
+      },
+      {
+        id: 5,
+        name: '甘蔗渣餐具套装',
+        price: 35.0,
+        image: P.indexProduct(5)
+      },
+      {
+        id: 6,
+        name: '甘蔗渣保鲜盒',
+        price: 38.0,
+        image: P.indexProduct(6)
       }
     ],
     activityList: [
@@ -63,7 +91,7 @@ Component({
         price: 68,
         unit: '人',
         time: '每周六日',
-        image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+        image: P.indexActivity(1)
       },
       {
         id: 2,
@@ -72,7 +100,7 @@ Component({
         price: 298,
         unit: '家庭',
         time: '周末节假日',
-        image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+        image: P.indexActivity(2)
       },
       {
         id: 3,
@@ -81,7 +109,7 @@ Component({
         price: 88,
         unit: '人',
         time: '每日开放',
-        image: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+        image: P.indexActivity(3)
       }
     ]
   },
