@@ -1,15 +1,13 @@
-import { P } from '../../utils/placeholders'
-
-Component({
+Page({
   data: {
     bannerSlides: [
       {
-        src: P.activityBanner(1),
+        src: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
         title: '活动主题',
         desc: '探索甘蔗的奥秘，体验农耕文化'
       },
       {
-        src: P.activityBanner(2),
+        src: 'https://mmbiz.qpic.cn/mmbiz_jpg/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
         title: '活动主题',
         desc: '亲子研学 · 劳动教育 · 碳循环科普'
       }
@@ -26,7 +24,8 @@ Component({
         tag: '热门',
         type: 'study',
         highlights: ['科普教育', '动手体验', '环保理念'],
-        image: P.activityCard(1)
+        image: '',
+        availableDates: ['01-16', '01-17', '01-19', '01-20']
       },
       {
         id: 2,
@@ -39,7 +38,8 @@ Component({
         tag: '推荐',
         type: 'family',
         highlights: ['亲子互动', '户外体验', '美食制作'],
-        image: P.activityCard(2)
+        image: '',
+        availableDates: ['01-16', '01-17', '01-19', '01-23']
       },
       {
         id: 3,
@@ -52,7 +52,8 @@ Component({
         tag: '',
         type: 'farm',
         highlights: ['特色餐饮', '拍照打卡', '文创体验'],
-        image: P.activityCard(3)
+        image: '',
+        availableDates: ['01-17', '01-20', '01-21', '01-23']
       },
       {
         id: 4,
@@ -65,38 +66,33 @@ Component({
         tag: '定制',
         type: 'study',
         highlights: ['课程授权', '专业教具', '教师培训'],
-        image: P.activityCard(4)
+        image: '',
+        availableDates: ['01-19', '01-20', '01-21', '01-22']
       }
     ],
-    calendarList: [
-      { date: '01-16', week: '周六', status: 'available' },
-      { date: '01-17', week: '周日', status: 'available' },
-      { date: '01-18', week: '周一', status: 'full' },
-      { date: '01-19', week: '周二', status: 'available' },
-      { date: '01-20', week: '周三', status: 'available' },
-      { date: '01-21', week: '周四', status: 'available' },
-      { date: '01-22', week: '周五', status: 'full' },
-      { date: '01-23', week: '周六', status: 'available' }
-    ]
-  },
-  methods: {
-    filterType(type: string) {
-      wx.showToast({
-        title: `筛选${type}类型`,
-        icon: 'none'
-      })
-    },
-    goToDetail(e: any) {
-      const id = e.currentTarget.dataset.id
-      wx.navigateTo({
-        url: `/pages/activities/detail?id=${id}`
-      })
-    },
-    bookActivity(e: any) {
-      const id = e.currentTarget.dataset.id
-      wx.navigateTo({
-        url: `/pages/activities/book/book?id=${id}`
-      })
+    iconMap: {
+      study: '📚',
+      family: '👨‍👩‍👧',
+      farm: '🏡'
     }
+  },
+  filterType(e: any) {
+    const type = e.currentTarget.dataset.type
+    wx.showToast({
+      title: `筛选${type === 'all' ? '全部' : type === 'study' ? '研学课程' : type === 'family' ? '亲子活动' : '农家乐'}`,
+      icon: 'none'
+    })
+  },
+  goToDetail(e: any) {
+    const id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: `/pages/activities/detail?id=${id}`
+    })
+  },
+  bookActivity(e: any) {
+    const id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: `/pages/activities/book/book?id=${id}`
+    })
   }
 })

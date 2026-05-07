@@ -1,6 +1,6 @@
 <view class="container">
   <view class="activity-card">
-    <image class="activity-img" src="{{activity.image}}" mode="aspectFill" />
+    <view class="activity-icon">📋</view>
     <view class="activity-info">
       <text class="activity-title">{{activity.title}}</text>
       <view class="activity-meta">
@@ -38,12 +38,17 @@
     
     <view class="form-item">
       <text class="form-label">预约日期</text>
-      <picker mode="date" bindchange="onDateChange" value="{{bookDate}}">
-        <view class="form-picker">
-          <text>{{bookDate || '请选择日期'}}</text>
-          <text class="arrow">▼</text>
+      <view class="date-selector">
+        <view 
+          class="date-item {{bookDate === item ? 'selected' : ''}}" 
+          wx:for="{{availableDates}}" 
+          wx:key="item"
+          catchtap="selectDate"
+          data-date="{{item}}"
+        >
+          {{item}}
         </view>
-      </picker>
+      </view>
     </view>
     
     <view class="form-item">

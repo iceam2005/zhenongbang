@@ -17,25 +17,25 @@
   </swiper>
 
   <view class="activity-types">
-    <view class="type-item" bindtap="filterType('all')">
+    <view class="type-item" bindtap="filterType" data-type="all">
       <view class="type-icon all-icon">
         <text>全</text>
       </view>
       <text class="type-text">全部</text>
     </view>
-    <view class="type-item" bindtap="filterType('study')">
+    <view class="type-item" bindtap="filterType" data-type="study">
       <view class="type-icon study-icon">
         <text>研</text>
       </view>
       <text class="type-text">研学课程</text>
     </view>
-    <view class="type-item" bindtap="filterType('family')">
+    <view class="type-item" bindtap="filterType" data-type="family">
       <view class="type-icon family-icon">
         <text>亲</text>
       </view>
       <text class="type-text">亲子活动</text>
     </view>
-    <view class="type-item" bindtap="filterType('farm')">
+    <view class="type-item" bindtap="filterType" data-type="farm">
       <view class="type-icon farm-icon">
         <text>农</text>
       </view>
@@ -46,7 +46,7 @@
   <view class="activity-list">
     <view class="activity-card" wx:for="{{activityList}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
       <view class="activity-img-wrap">
-        <image class="activity-img" src="{{item.image}}" mode="aspectFill" />
+        <view class="activity-icon">{{iconMap[item.type] || '📋'}}</view>
         <view class="activity-scene-badge"><text>活动现场</text></view>
       </view>
       <view class="activity-info">
@@ -70,6 +70,14 @@
             <text>• {{item.highlights[index]}}</text>
           </view>
         </view>
+        <view class="activity-dates">
+          <text class="dates-label">近期可预约：</text>
+          <view class="dates-wrap">
+            <view class="date-tag" wx:for="{{item.availableDates}}" wx:key="index">
+              {{item.availableDates[index]}}
+            </view>
+          </view>
+        </view>
         <view class="activity-footer">
           <view class="price-section">
             <text class="price-label">价格：</text>
@@ -80,18 +88,5 @@
         </view>
       </view>
     </view>
-  </view>
-
-  <view class="calendar-section">
-    <text class="calendar-title">近期可预约日期</text>
-    <scroll-view scroll-x class="calendar-scroll">
-      <view class="calendar-list">
-        <view class="calendar-item" wx:for="{{calendarList}}" wx:key="date">
-          <text class="calendar-date">{{item.date}}</text>
-          <text class="calendar-week">{{item.week}}</text>
-          <view class="calendar-status {{item.status}}" text="{{item.status === 'available' ? '可预约' : '已满'}}"></view>
-        </view>
-      </view>
-    </scroll-view>
   </view>
 </view>
