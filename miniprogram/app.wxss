@@ -5,6 +5,7 @@ page {
 
 .container {
   padding: 20rpx;
+  padding-bottom: calc(140rpx + env(safe-area-inset-bottom));
 }
 
 .card {

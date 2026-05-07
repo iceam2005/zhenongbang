@@ -1,4 +1,6 @@
-/** 在线占位图（picsum.photos）。真机/预览请在小程序后台配置 download 合法域名：picsum.photos、i.picsum.photos */
+/** 本地营销图：miniprogram/images/marketing（无需配置 download 域名） */
+
+const IMG = '/images/marketing'
 
 function picsum(seed: string, w: number, h: number): string {
   const s = seed.replace(/[^a-zA-Z0-9_-]/g, '')
@@ -6,17 +8,66 @@ function picsum(seed: string, w: number, h: number): string {
 }
 
 export const P = {
-  homeBanner: (i: number) => picsum(`znn-home-bn${i}`, 750, 400),
-  indexSupply: (id: number) => picsum(`znn-idx-sup${id}`, 200, 200),
-  indexProduct: (id: number) => picsum(`znn-idx-prd${id}`, 300, 300),
+  homeBanner: (i: number) => {
+    const list = [`${IMG}/carousel-harvest.png`, `${IMG}/carousel-products.png`, `${IMG}/carousel-factory.png`]
+    return list[(i - 1 + list.length) % list.length] || list[0]
+  },
+  indexSupply: (id: number) => {
+    const list = [
+      `${IMG}/supply-fresh-cane.png`,
+      `${IMG}/supply-juicer.png`,
+      `${IMG}/supply-brown-sugar.png`,
+      `${IMG}/supply-bagasse.png`
+    ]
+    return list[(id - 1 + list.length) % list.length] || list[0]
+  },
+  indexProduct: (id: number) => {
+    const list = [
+      `${IMG}/eco-straws.png`,
+      `${IMG}/eco-lunchbox.png`,
+      `${IMG}/eco-flowerpot.png`,
+      `${IMG}/eco-giftbox.png`,
+      `${IMG}/eco-cutlery.png`,
+      `${IMG}/eco-freshbox.png`
+    ]
+    return list[(id - 1 + list.length) % list.length] || list[0]
+  },
   indexActivity: (id: number) => picsum(`znn-idx-act${id}`, 300, 300),
-  marketSupply: (id: number) => picsum(`znn-mkt-sup${id}`, 200, 200),
-  marketDemand: (id: number) => picsum(`znn-mkt-dem${id}`, 200, 200),
-  productThumb: (id: number) => picsum(`znn-prd-${id}`, 300, 300),
+  marketSupply: (id: number) => {
+    const list = [
+      `${IMG}/supply-fresh-cane.png`,
+      `${IMG}/supply-juicer.png`,
+      `${IMG}/supply-brown-sugar.png`,
+      `${IMG}/supply-bagasse.png`
+    ]
+    return list[(id - 1 + list.length) % list.length] || list[0]
+  },
+  marketDemand: (id: number) => {
+    const list = [
+      `${IMG}/demand-wholesale.png`,
+      `${IMG}/demand-supermarket.png`,
+      `${IMG}/demand-milktea.png`,
+      `${IMG}/demand-factory.png`
+    ]
+    return list[(id - 1 + list.length) % list.length] || list[0]
+  },
+  productThumb: (id: number) => {
+    const list = [
+      `${IMG}/eco-straws.png`,
+      `${IMG}/eco-lunchbox.png`,
+      `${IMG}/eco-flowerpot.png`,
+      `${IMG}/eco-giftbox.png`,
+      `${IMG}/eco-cutlery.png`,
+      `${IMG}/eco-freshbox.png`,
+      `${IMG}/eco-seedling-cup.png`,
+      `${IMG}/eco-notebook.png`
+    ]
+    return list[(id - 1 + list.length) % list.length] || list[0]
+  },
   activityBanner: (i: number) => picsum(`znn-act-bn${i}`, 750, 400),
   activityCard: (id: number) => picsum(`znn-act-card${id}`, 300, 300),
   userAvatar: () => picsum('znn-user-avatar', 120, 120),
-  productsEco: () => picsum('znn-products-eco', 750, 400),
+  productsEco: () => `${IMG}/supply-bagasse.png`,
   fallback: () => picsum('znn-fallback', 400, 300)
 }
 

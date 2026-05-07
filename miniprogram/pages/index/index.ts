@@ -3,15 +3,15 @@ import { P } from '../../utils/placeholders'
 Component({
   data: {
     bannerSlides: [
-      { src: P.homeBanner(1), label: '轮播图1', subtitle: '智慧助农 · 碳循环经济' },
-      { src: P.homeBanner(2), label: '轮播图2', subtitle: '' },
-      { src: P.homeBanner(3), label: '轮播图3', subtitle: '' }
+      { src: P.homeBanner(1), label: '甘蔗丰收季', subtitle: '智慧助农 · 碳循环经济' },
+      { src: P.homeBanner(2), label: '红糖·蔗糖·甘汁', subtitle: '产地加工好物' },
+      { src: P.homeBanner(3), label: '基地与加工', subtitle: '从田间到车间' }
     ],
     marketList: [
       {
         id: 1,
-        title: '优质果蔗批发',
-        desc: '产地直供，新鲜采摘，甜度高',
+        title: '带叶鲜蔗产地直供',
+        desc: '果蔗、糖料蔗，新鲜砍收，甜度高',
         price: 3.5,
         unit: '斤',
         location: '广西南宁',
@@ -19,26 +19,26 @@ Component({
       },
       {
         id: 2,
-        title: '糖料蔗大量供应',
-        desc: '含糖量高，适合榨糖',
+        title: '鲜榨甘蔗汁与设备',
+        desc: '景区、夜市、奶茶店配套原料与机具',
         price: 280,
-        unit: '吨',
+        unit: '套',
         location: '广东湛江',
         image: P.indexSupply(2)
       },
       {
         id: 3,
-        title: '有机甘蔗种苗',
-        desc: '优质品种，成活率高',
-        price: 0.8,
-        unit: '株',
+        title: '手工红糖·蔗糖',
+        desc: '传统工艺，块糖粉糖，批发零售均可',
+        price: 18,
+        unit: '斤',
         location: '云南临沧',
         image: P.indexSupply(3)
       },
       {
         id: 4,
-        title: '新鲜甘蔗梢',
-        desc: '营养丰富，适合养殖饲料',
+        title: '蔗渣综合利用',
+        desc: '有机肥、纸浆基材等副产品',
         price: 120,
         unit: '吨',
         location: '广西崇左',
@@ -48,7 +48,7 @@ Component({
     productList: [
       {
         id: 1,
-        name: '可降解吸管',
+        name: '可降解甘蔗吸管',
         price: 29.9,
         image: P.indexProduct(1)
       },
@@ -60,25 +60,25 @@ Component({
       },
       {
         id: 3,
-        name: '农育花盆',
+        name: '蔗渣农育花盆',
         price: 15.0,
         image: P.indexProduct(3)
       },
       {
         id: 4,
-        name: '文创礼品',
+        name: '文创礼盒',
         price: 68.0,
         image: P.indexProduct(4)
       },
       {
         id: 5,
-        name: '甘蔗渣餐具套装',
+        name: '餐具套装',
         price: 35.0,
         image: P.indexProduct(5)
       },
       {
         id: 6,
-        name: '甘蔗渣保鲜盒',
+        name: '保鲜盒',
         price: 38.0,
         image: P.indexProduct(6)
       }
